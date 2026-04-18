@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raffa Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0a0a0a;color:#fff;scroll-behavior:smooth}
+
+header{position:fixed;width:100%;top:0;padding:20px 8%;display:flex;justify-content:space-between;background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);z-index:1000}
+header h1{color:#00f5ff}
+nav a{margin-left:20px;color:#aaa;text-decoration:none;transition:.3s;position:relative}
+nav a:hover{color:#fff}
+nav a::after{content:'';position:absolute;width:0;height:2px;background:#00f5ff;bottom:-5px;left:0;transition:.3s}
+nav a:hover::after{width:100%}
+
+section{min-height:100vh;padding:120px 8%;opacity:0;transform:translateY(60px);transition:1s}
+section.active{opacity:1;transform:translateY(0)}
+
+.hero{display:flex;justify-content:space-between;flex-wrap:wrap;align-items:center}
+.hero-text h2{font-size:3rem}
+.hero-text span{color:#00f5ff}
+.hero-desc{margin-top:10px;color:#ccc;font-size:1.1rem}
+.quote{margin-top:10px;font-style:italic;color:#aaa}
+.btn{margin-top:20px;padding:10px 25px;border:none;background:#00f5ff;color:#000;border-radius:25px;cursor:pointer;transition:.3s}
+.btn:hover{transform:scale(1.1)}
+
+.hero-img{width:250px;height:250px;border-radius:50%;background:linear-gradient(45deg,#00f5ff,#0066ff);display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+.hero-img::after{content:'';position:absolute;width:100%;height:100%;border-radius:50%;border:2px solid #00f5ff;animation:spin 6s linear infinite}
+
+@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:#111;padding:20px;border-radius:15px;transition:.3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-10px) scale(1.03)}
+.card::after{
+content:'';position:absolute;width:100%;height:100%;background:linear-gradient(120deg,transparent,#00f5ff,transparent);
+top:-100%;left:0;transition:0.6s
+}
+.card:hover::after{top:100%}
+
+.exp-card,.contact-box{background:#111;padding:20px;border-radius:10px;margin-bottom:15px}
+.exp-card{border-left:4px solid #00f5ff}
+
+.contact a{color:#00f5ff;text-decoration:none}
+.contact a:hover{text-decoration:underline}
+
+footer{text-align:center;padding:20px;background:#000}
+
+.fade-out{opacity:0;transition:0.5s}
+
+@media(max-width:768px){.hero{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Raffa</h1>
+<nav>
+<a href="#home" onclick="navigate(event,'home')">Home</a>
+<a href="#about" onclick="navigate(event,'about')">About</a>
+<a href="#projects" onclick="navigate(event,'projects')">Projects</a>
+<a href="#experience" onclick="navigate(event,'experience')">Experience</a>
+<a href="#contact" onclick="navigate(event,'contact')">Contact</a>
+</nav>
+</header>
+
+<section id="home" class="hero active">
+<div class="hero-text">
+<h2>Hi, I'm <span>Raffa</span></h2>
+<p id="typing"></p>
+<p class="hero-desc">I build modern web experiences with purpose and creativity.</p>
+<p class="quote">"Build your future with knowledge and faith."</p>
+<button class="btn" onclick="navigate(event,'contact')">Hire Me</button>
+</div>
+<div class="hero-img">R</div>
+</section>
+
+<section id="about">
+<h2>About Me</h2>
+<p>Pelajar yang fokus di dunia IT dan pengembangan teknologi dengan tetap menjaga nilai agama.</p>
+<p><b>Favorite Games:</b> Free Fire, Roblox, Growtopia</p>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="projects">
+<div class="card"><h3>Website</h3><p>Modern UI</p></div>
+<div class="card"><h3>App</h3><p>Interactive JS</p></div>
+<div class="card"><h3>Game</h3><p>Mini Game</p></div>
+</div>
+</section>
+
+<section id="experience">
+<h2>Experience</h2>
+<div class="exp-card">
+<h3>SD - Sekolah Alam Bintaro</h3>
+<p>Pendidikan berbasis alam untuk membangun karakter dan kreativitas.</p>
+</div>
+<div class="exp-card">
+<h3>SMP - Pondok Tahfizh Plus IT Abudzar</h3>
+<p>Menggabungkan IT dan agama sebagai fondasi kehidupan.</p>
+</div>
+<div class="exp-card">
+<h3>IHBS</h3>
+<p>Fokus menuju tujuan utama: UIM atau ITB.</p>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<div class="contact-box">
+<p>Email: <a href="mailto:Zydhean@gmail.com">Zydhean@gmail.com</a></p>
+<p>Instagram: 
+<a href="https://instagram.com/raaffasyaza" target="_blank">@raaffasyaza</a> |
+<a href="https://instagram.com/sec_raaffz" target="_blank">@sec_raaffz</a>
+</p>
+<p>Address: Tangerang Selatan, Bintaro, Komplek Emerald</p>
+<p>Phone: <a href="tel:089678698787">089678698787</a></p>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Raffa</p>
+</footer>
+
+<script>
+const words=["Web Developer","Student","Future ITB/UIM Student"];
+let i=0,j=0,current='',del=false;
+function type(){
+current=words[i];
+document.getElementById('typing').textContent=current.substring(0,j);
+if(!del&&j<current.length)j++;
+else if(del&&j>0)j--;
+else{del=!del;if(!del)i=(i+1)%words.length}
+setTimeout(type,del?50:100)
+}
+type();
+
+const sections=document.querySelectorAll('section');
+window.addEventListener('scroll',()=>{
+sections.forEach(sec=>{
+const top=window.scrollY;
+const offset=sec.offsetTop-300;
+if(top>offset){sec.classList.add('active')}
+})
+});
+
+function navigate(e,id){
+ e.preventDefault();
+ document.body.classList.add('fade-out');
+ setTimeout(()=>{
+   document.getElementById(id).scrollIntoView({behavior:'smooth'});
+   document.body.classList.remove('fade-out');
+ },300);
+}
+</script>
+
+</body>
+</html>
